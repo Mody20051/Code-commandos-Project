@@ -1,5 +1,4 @@
-package OnlineBankingSystem;
+package Resources;
 
 public class OnlineBankingSystem {
-
 }
