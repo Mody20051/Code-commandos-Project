@@ -10,7 +10,8 @@ public class Employee extends User{
 
     }
 
-    public Employee(String name, int id, int salary, int hours) {
+    public Employee(String name, int id, int salary, int hours,String username, String password) {
+        super(username,password);
         this.name = name;
         this.id = id;
         this.salary = salary;
