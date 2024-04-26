@@ -1,6 +1,11 @@
 package Resources;
 
-public class Manger {
-    private String lol;
-     public int x;
-}
+public class Manger extends Employee  {
+    private   String department;
+
+    public Manger() {
+    }
+
+
+    }
+
