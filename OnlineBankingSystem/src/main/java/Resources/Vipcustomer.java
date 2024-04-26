@@ -1,6 +1,6 @@
 package Resources;
 
-abstract public class Vipcustomer extends Customer {
+ public class Vipcustomer extends Customer {
 
     public Vipcustomer(String username, String password, String name, int phonenum, String address, Gender gender, double ammount) {
         super(username, password, name, phonenum, address, gender, ammount);
