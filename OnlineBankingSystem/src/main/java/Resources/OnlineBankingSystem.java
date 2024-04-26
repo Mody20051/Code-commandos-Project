@@ -1,6 +1,7 @@
 package Resources;
 
 public class OnlineBankingSystem {
+<<<<<<< HEAD
     private String username;
     private String password;
 
@@ -21,4 +22,6 @@ public class OnlineBankingSystem {
     void register(String name,String password){
 
     }
+=======
+>>>>>>> origin/main
 }
