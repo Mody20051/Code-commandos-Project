@@ -1,6 +1,9 @@
 package Resources;
 
 public class silvercustomer {
-    public String name;
+    protected String name;
+    protected int phonenum;
+    protected String address;
+
     
 }

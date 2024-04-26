@@ -1,31 +1,24 @@
 package Resources;
 
-public class User {
-    private String Username;
-    private String Password;
-
-    User(){
-
-    }
+public class User extends OnlineBankingSystem{
 
     public User(String username, String password) {
-        Username = username;
-        Password = password;
+        super(username,password);
     }
 
     public String getUsername() {
-        return Username;
+        return getUsername();
     }
 
     public void setUsername(String username) {
-        Username = username;
+        username = username;
     }
 
     public String getPassword() {
-        return Password;
+        return super.getPassword();
     }
 
     public void setPassword(String password) {
-        Password = password;
+        password = password;
     }
 }

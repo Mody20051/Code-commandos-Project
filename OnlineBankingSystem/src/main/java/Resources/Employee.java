@@ -6,10 +6,6 @@ public class Employee extends User{
     private int salary;
     private int hours;
 
-    Employee(){
-
-    }
-
     public Employee(String name, int id, int salary, int hours,String username, String password) {
         super(username,password);
         this.name = name;
