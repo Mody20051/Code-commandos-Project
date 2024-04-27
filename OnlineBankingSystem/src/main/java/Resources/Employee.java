@@ -1,33 +1,22 @@
 package Resources;
 
-public class Employee extends User{
-    private String name;
-    private int id;
+public class Employee extends Personalnformation{
+
+    private String  EID;
     private int salary;
     private int hours;
 
-    public Employee(String name, int id, int salary, int hours,String username, String password) {
-        super(username,password);
-        this.name = name;
-        this.id = id;
+    public Employee(String EID, int salary, int hours) {
+        this.EID = EID;
         this.salary = salary;
         this.hours = hours;
     }
 
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
+    public Employee(String name, int phonenum, String address, Gender gender, int id, User user, String EID, int salary, int hours) {
+        super(name, phonenum, address, gender, id, user);
+        this.EID = EID;
+        this.salary = salary;
+        this.hours = hours;
     }
 
     public int getSalary() {
@@ -44,5 +33,14 @@ public class Employee extends User{
 
     public void setHours(int hours) {
         this.hours = hours;
+    }
+
+    @Override
+    public String toString() {
+        return "Employee{" +
+                "EID='" + EID + '\'' +
+                ", salary=" + salary +
+                ", hours=" + hours +
+                '}';
     }
 }
