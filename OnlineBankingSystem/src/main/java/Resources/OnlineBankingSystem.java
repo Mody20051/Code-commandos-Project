@@ -2,10 +2,12 @@ package Resources;
 import java.util.Scanner;
 public class OnlineBankingSystem {
     Scanner scanner = new Scanner(System.in);
-   public static void main (String [] args){
-       OnlineBankingSystem onlineBankingSystem=new OnlineBankingSystem();
-       onlineBankingSystem.start();
-   }
+
+    public static void main(String[] args) {
+        OnlineBankingSystem onlineBankingSystem = new OnlineBankingSystem();
+        onlineBankingSystem.start();
+    }
+
     public void start() {
         int choice;
         do {
@@ -58,9 +60,11 @@ public class OnlineBankingSystem {
 
         System.out.print("Enter password: ");
         String password = scanner.nextLine();
-        if (user != null && user.getPassword().equals(password))
-        System.out.println("Login successful!");
-    } else {
-        System.out.println("Login failed. Please check username and password.");
+//        if (user != null && user.getPassword().equals(password)){
+//            System.out.println("Login successful!");
+//        }
+//        else{
+//            System.out.println("Login failed. Please check username and password.");
+//         }
         }
       }

@@ -5,11 +5,11 @@ import java.util.ArrayList;
 public abstract class Account extends Personalnformation {
      private double balance;
      private String account;
-     protected ArrayList<String> transactionsType =new ArrayList<>();
+      ArrayList<String> transactionsType =new ArrayList<>();
 
 
-    public Account(String name, int phonenum, String address, Gender gender, int id, double balance, String account) {
-        super(name, phonenum, address, gender, id);
+    public Account(String name,String password,String email,int phonenum, String address, Gender gender, int id, double balance, String account) {
+        super(name,password,email,phonenum, address, gender, id);
         this.balance = balance;
         this.account = account;
     }

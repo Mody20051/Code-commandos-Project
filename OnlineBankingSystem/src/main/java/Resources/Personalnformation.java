@@ -10,14 +10,6 @@ public class Personalnformation {
     private Gender gender;
     private int id;
 
-    public Personalnformation(String name, int phonenum, String address, Gender gender, int id) {
-        this.name = name;
-        this.phonenum = phonenum;
-        this.address = address;
-        this.gender = gender;
-        this.id = id;
-    }
-
     public Personalnformation(String name, String password, String email, int phonenum, String address, Gender gender, int id) {
         this.name = name;
         this.password = password;

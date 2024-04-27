@@ -4,8 +4,8 @@ import java.util.Date;
 
 public class NormalCustomer extends Account{
     final static int INTERSET=18;
-    public NormalCustomer(String name, int phonenum, String address, Gender gender, int id, double balance, String account) {
-        super(name,phonenum,address,gender,id,balance, account);
+    public NormalCustomer(String name,String password,String email,int phonenum, String address, Gender gender, int id, double balance, String account) {
+        super(name,password,email,phonenum,address,gender,id, balance, account);
     }
 
     @Override

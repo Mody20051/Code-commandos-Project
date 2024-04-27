@@ -8,8 +8,8 @@ public class Department extends Manger{
     private  Date  MGSTATDATE;
     Manger manger;
 
-    public Department(String name, int phonenum, String address, Gender gender, int id,Manger manger, String EID, int salary, int hours, String DENAME, int DENUMBER, Date MGSTATDATE) {
-        super(name,phonenum,address,gender,id, EID, salary, hours);
+    public Department(String name,String password,String email,int phonenum, String address, Gender gender, int id,Manger manger, String EID, int salary, int hours, String DENAME, int DENUMBER, Date MGSTATDATE) {
+        super(name,password,email,phonenum,address,gender,id, EID, salary, hours);
         this.DENAME = DENAME;
         this.DENUMBER = DENUMBER;
         this.MGSTATDATE = MGSTATDATE;

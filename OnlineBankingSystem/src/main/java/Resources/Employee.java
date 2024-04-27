@@ -6,15 +6,12 @@ public class Employee extends Personalnformation{
     private int salary;
     private int hours;
 
-
-    public Employee(String name, String password, String email, int phonenum, String address, Gender gender, int id, String EID, int salary, int hours) {
-        super(name, password, email, phonenum, address, gender, id);
+    public Employee(String name,String password,String email,int phonenum, String address, Gender gender, int id, String EID, int salary, int hours) {
+        super(name,password,email,phonenum,address, gender, id);
         this.EID = EID;
         this.salary = salary;
         this.hours = hours;
     }
-
-
 
     public int getSalary() {
         return salary;

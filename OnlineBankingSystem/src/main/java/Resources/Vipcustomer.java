@@ -4,11 +4,10 @@ import java.util.Date;
 
 public class Vipcustomer extends Account {
 
-    public Vipcustomer(String name, int phonenum, String address, Gender gender, int id, double balance, String account) {
-        super(name,phonenum,address,gender,id, balance, account);
+    public Vipcustomer(String name,String password,String email,int phonenum, String address, Gender gender, int id, double balance, String account) {
+        super(name,password,email,phonenum,address,gender,id, balance, account);
     }
-
-    final static int INTERSET=18;
+    final static int INTERSET=15;
     @Override
     public void applyInterest() {
         try {
