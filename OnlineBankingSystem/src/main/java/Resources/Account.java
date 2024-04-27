@@ -2,7 +2,7 @@ package Resources;
 
 import java.util.ArrayList;
 
-public abstract class Customer extends User {
+public abstract class Account extends User {
      protected String name;
      protected int phonenum;
      protected String address;
@@ -11,7 +11,7 @@ public abstract class Customer extends User {
      protected String account;
      protected ArrayList<String> transactions =new ArrayList<>();
 
-     public Customer(String username, String password, String name, int phonenum, String address, Gender gender, double wallet,String account) {
+     public Account(String username, String password, String name, int phonenum, String address, Gender gender, double wallet,String account) {
          super(username, password);
          this.name = name;
          this.phonenum = phonenum;

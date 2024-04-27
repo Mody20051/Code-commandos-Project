@@ -24,12 +24,6 @@ public class OnlineBankingSystem {
         return password;
     }
 
-    void login(String username,String password){
-        this.username=username;
-        this.password=password;
-
-    }
-
     void register(){
 
        }

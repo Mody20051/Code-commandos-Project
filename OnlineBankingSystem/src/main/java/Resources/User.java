@@ -36,8 +36,11 @@ public class User {
 
     public void setPassword(String password) {
         try {
-            this.password = password;
+            if(password.length() == 8){
+                this.password = password;
+            }
         } catch (Exception e) {
+            System.out.println("More than the length of password that its equal 8");
             throw new RuntimeException(e);
         }
     }

@@ -13,16 +13,8 @@ public class Personalnformation  {
     }
 
     public Personalnformation(String name, int phonenum, String address, Gender gender, int id, User user) {
-        try {
-            this.name = name;
-        } catch (Exception e) {
-            throw new RuntimeException(e);
-        }
-        try {
-            this.phonenum = phonenum;
-        } catch (Exception e) {
-            throw new RuntimeException(e);
-        }
+        this.name = name;
+        this.phonenum = phonenum;
         this.address = address;
         this.gender = gender;
         this.id = id;
@@ -37,9 +29,13 @@ public class Personalnformation  {
     public int getPhonenum() {
         return phonenum;
     }
-    public void setPhonenum(int phonenum) {
+    public void setPhonenum(int phonenum) throws IllegalArgumentException {
+        if (phonenum < 0) {
+            throw new IllegalArgumentException("Phone number cannot be negative.");
+        }
         this.phonenum = phonenum;
     }
+
     public String getAddress() {
         return address;
     }
@@ -50,10 +46,12 @@ public class Personalnformation  {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(int id) throws ArithmeticException{
+        if (phonenum < 0) {
+            throw new IllegalArgumentException("Phone number cannot be negative.");
+        }
         this.id = id;
     }
-
     public User getUser() {
         return user;
     }
@@ -61,7 +59,5 @@ public class Personalnformation  {
     public void setUser(User user) {
         this.user = user;
     }
-
-
 
 }

@@ -5,8 +5,7 @@ public class Department {
 
     private String DENAME;
     private int DENUMBER;
-
-private  Date  MGSTATDATE;
+    private  Date  MGSTATDATE;
 
 
     public Department() {
@@ -31,6 +30,9 @@ private  Date  MGSTATDATE;
     }
 
     public void setDENUMBER(int DENUMBER) {
+        if (DENUMBER < 0) {
+            throw new IllegalArgumentException("Department Number cannot be negative.");
+        }
         this.DENUMBER = DENUMBER;
     }
 
