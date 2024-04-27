@@ -35,5 +35,6 @@ public class Manger extends Employee  {
                 ", email='" + email + '\'' +
                 '}';
     }
+
 }
 
