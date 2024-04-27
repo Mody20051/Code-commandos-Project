@@ -71,7 +71,9 @@ public abstract class Customer extends User {
                  ", gender=" + gender +
                  '}';
      }
-     public String transactions(){
+
+    abstract public void applyInterest();
+    public String transactions(){
          if(transactions.size() >= 1){
              String trans="";
          for (int i = 0; i < transactions.size(); i++) {
