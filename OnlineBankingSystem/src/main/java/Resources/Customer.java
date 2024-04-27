@@ -1,21 +1,25 @@
 package Resources;
 
- public abstract class Customer extends User {
+import java.util.ArrayList;
+
+public abstract class Customer extends User {
      protected String name;
      protected int phonenum;
      protected String address;
      protected Gender gender;
+     protected double wallet;
+     protected String account;
 
-     protected double ammount;
+     protected ArrayList<String> transactions =new ArrayList<>();
 
-
-     public Customer(String username, String password, String name, int phonenum, String address, Gender gender, double ammount) {
+     public Customer(String username, String password, String name, int phonenum, String address, Gender gender, double wallet,String account) {
          super(username, password);
          this.name = name;
          this.phonenum = phonenum;
          this.address = address;
          this.gender = gender;
-         this.ammount = ammount;
+         this.wallet = wallet;
+         this.account=account;
      }
 
      public String getName() {
@@ -50,16 +54,15 @@ package Resources;
          this.gender = gender;
      }
 
-     public double getAmmount() {
-         return ammount;
-     }
+    public double getWallet() {
+        return wallet;
+    }
 
-     public void setAmmount(double ammount) {
-         this.ammount = ammount;
-     }
+    public void setWallet(double wallet) {
+        wallet = wallet;
+    }
 
-
-     @Override
+    @Override
      public String toString() {
          return "Customer{" +
                  "name='" + name + '\'' +
@@ -68,6 +71,17 @@ package Resources;
                  ", gender=" + gender +
                  '}';
      }
-     public abstract void applyInterest(double ammount);
+     public String transactions(){
+         if(transactions.size() >= 1){
+             String trans="";
+         for (int i = 0; i < transactions.size(); i++) {
+             trans += transactions.get(i) + "\n" + " ";
+         }
+         return trans;
+     }
+        return "No transactions";
+    }
+    public abstract void withdraw(double money);
+     public abstract void deposit(double money);
  }
 

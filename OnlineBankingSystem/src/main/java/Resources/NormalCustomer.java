@@ -2,13 +2,13 @@ package Resources;
 
 import java.util.Date;
 
-public class Vipcustomer extends Customer {
-
-    public Vipcustomer(String username, String password, String name, int phonenum, String address, Gender gender, double wallet,String account) {
-        super(username, password, name, phonenum, address, gender, wallet,account);
+public class NormalCustomer extends Customer{
+      //final static int INTERSET=5;
+    final static int INTERSET=18;
+    public NormalCustomer(String username, String password, String name, int phonenum, String address, Gender gender, double wallet, String account) {
+        super(username, password, name, phonenum, address, gender, wallet, account);
     }
 
-    final static int INTERSET=25;
     @Override
     public void applyInterest() {
         double interest = wallet * INTERSET / 100.0;
@@ -27,7 +27,8 @@ public class Vipcustomer extends Customer {
      public void deposit(double money) {
          wallet += money;
          double interest = wallet * INTERSET / 100.0;
-         String line = "money of value "+interest+" is deposit "+ new Date();
+         String line = "money of value "+interest+" is withdraw "+ new Date();
          transactions.add(line);
      }
+
  }
