@@ -1,5 +1,5 @@
 package Resources;
 
-public class Transactions extends Customer{
+public class Transactions {
 
 }
