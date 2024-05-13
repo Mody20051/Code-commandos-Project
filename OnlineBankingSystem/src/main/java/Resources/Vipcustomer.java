@@ -17,17 +17,17 @@ public class Vipcustomer extends Customer {
 
      @Override
      public void withdraw(double money) {
-         wallet -= money;
-         double interest = wallet * INTERSET / 100.0;
-         String line = "money of value "+interest+" is withdraw "+ new Date();
-         transactions.add(line);
+             wallet -= money;
+             double interest = wallet * INTERSET / 100.0;
+             String line = "Withdrew $"+interest+" on "+ new Date();
+             transactions.add(line);
      }
 
      @Override
      public void deposit(double money) {
-         wallet += money;
-         double interest = wallet * INTERSET / 100.0;
-         String line = "money of value "+interest+" is deposit "+ new Date();
-         transactions.add(line);
+             wallet += money;
+             double interest = wallet * INTERSET / 100.0;
+             String line = "Deposited $"+interest+" on "+ new Date();
+             transactions.add(line);
      }
  }

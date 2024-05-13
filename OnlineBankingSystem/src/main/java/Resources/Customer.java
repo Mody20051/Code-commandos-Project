@@ -9,7 +9,6 @@ public abstract class Customer extends User {
      protected Gender gender;
      protected double wallet;
      protected String account;
-
      protected ArrayList<String> transactions =new ArrayList<>();
 
      public Customer(String username, String password, String name, int phonenum, String address, Gender gender, double wallet,String account) {
@@ -73,7 +72,7 @@ public abstract class Customer extends User {
      }
 
     abstract public void applyInterest();
-    public String transactions(){
+    public String getTransactions(){
          if(transactions.size() >= 1){
              String trans="";
          for (int i = 0; i < transactions.size(); i++) {
@@ -85,5 +84,5 @@ public abstract class Customer extends User {
     }
     public abstract void withdraw(double money);
      public abstract void deposit(double money);
- }
+}
 

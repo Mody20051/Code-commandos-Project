@@ -19,7 +19,7 @@ public class NormalCustomer extends Customer{
      public void withdraw(double money) {
          wallet -= money;
          double interest = wallet * INTERSET / 100.0;
-         String line = "money of value "+interest+" is withdraw "+ new Date();
+         String line = "Withdrew $"+interest+" on "+ new Date();
          transactions.add(line);
      }
 
@@ -27,7 +27,7 @@ public class NormalCustomer extends Customer{
      public void deposit(double money) {
          wallet += money;
          double interest = wallet * INTERSET / 100.0;
-         String line = "money of value "+interest+" is withdraw "+ new Date();
+         String line = "Deposited $"+interest+" on "+ new Date();
          transactions.add(line);
      }
 
