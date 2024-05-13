@@ -1,24 +1,44 @@
 package Resources;
+import java.util.*;
+public class User {
+    String Username;
+    String password;
 
-public class User extends OnlineBankingSystem{
+    User() {
+
+    }
 
     public User(String username, String password) {
-        super(username,password);
+        Username = username;
+        this.password = password;
     }
 
     public String getUsername() {
-        return getUsername();
+        return Username;
     }
 
-    public void setUsername(String username) {
-        username = username;
+    public void setUsername(String Username) throws IllegalArgumentException {
+        try {
+            this.Username = Username;
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+        if (!validateUsername(Username)) {
+            throw new IllegalArgumentException("Username can only contain letters.");
+        }
     }
-
+    public boolean validateUsername(String username) {
+        return username.matches("[a-zA-Z]+");
+    }
     public String getPassword() {
-        return super.getPassword();
+        return password;
     }
 
     public void setPassword(String password) {
-        password = password;
+        try {
+            this.password = password;
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
     }
 }
