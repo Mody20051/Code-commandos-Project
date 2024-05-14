@@ -4,15 +4,15 @@ import java.util.Date;
 
 public class Vipcustomer extends Account {
 
-    public Vipcustomer(String username, String password, String name, int phonenum, String address, Gender gender, double wallet,String account) {
-        super(username, password, name, phonenum, address, gender, wallet,account);
+    public Vipcustomer(String name, int phonenum, String address, Gender gender, int id, User user, double balance, String account) {
+        super(name, phonenum, address, gender, id, user, balance, account);
     }
 
-    final static int INTERSET=25;
+    final static int INTERSET=18;
     @Override
     public void applyInterest() {
         try {
-            double interest = wallet * INTERSET / 100.0;
+            double interest = getBalance() * INTERSET / 100.0;
             System.out.println("Interest earned: " + interest);
         } catch (ArithmeticException e) {
             throw new RuntimeException(e);
@@ -22,10 +22,11 @@ public class Vipcustomer extends Account {
      @Override
      public void withdraw(double money) {
          try {
-             wallet -= money;
-             double interest = wallet * INTERSET / 100.0;
-             String line = "Withdrew $"+interest+" on "+ new Date();
-             transactions.add(line);
+             double pop=getBalance();
+             pop -= money;
+             //double interest = pop * INTERSET / 100.0;
+             String line = "Withdrew $"+money+" on "+ new Date();
+             transactionsType.add(line);
          } catch (Exception e) {
              throw new RuntimeException(e);
          }finally{
@@ -36,10 +37,11 @@ public class Vipcustomer extends Account {
      @Override
      public void deposit(double money) {
          try {
-             wallet += money;
-             double interest = wallet * INTERSET / 100.0;
-             String line = "Deposited $"+interest+" on "+ new Date();
-             transactions.add(line);
+             double pop =getBalance();
+             pop += money;
+             double interest = getBalance() * INTERSET / 100.0;
+             String line = "Deposited $"+(interest+pop)+" on "+ new Date();
+             transactionsType.add(line);
          } catch (Exception e) {
              throw new RuntimeException(e);
          }finally {

@@ -3,16 +3,15 @@ package Resources;
 import java.util.Date;
 
 public class NormalCustomer extends Account{
-      //final static int INTERSET=5;
     final static int INTERSET=18;
-    public NormalCustomer(String username, String password, String name, int phonenum, String address, Gender gender, double wallet, String account) {
-        super(username, password, name, phonenum, address, gender, wallet, account);
+    public NormalCustomer(String name, int phonenum, String address, Gender gender,int id,User user, double balance, String account) {
+        super(name, phonenum, address, gender, id, user, balance, account);
     }
 
     @Override
     public void applyInterest() {
         try {
-            double interest = wallet * INTERSET / 100.0;
+            double interest = getBalance() * INTERSET / 100.0;
             System.out.println("Interest earned: " + interest);
         } catch (Exception e) {
             throw new RuntimeException(e);
@@ -22,10 +21,11 @@ public class NormalCustomer extends Account{
      @Override
      public void withdraw(double money) {
          try {
-             wallet -= money;
-             double interest = wallet * INTERSET / 100.0;
-             String line = "Withdrew $"+interest+" on "+ new Date();
-             transactions.add(line);
+             double intlo= getBalance();
+             double withdrawAmount = intlo - money;
+//             double interest = intlo * INTERSET / 100.0;
+             String line = "Withdraw $"+money+" on "+ new Date();
+             transactionsType.add(line);
          } catch (Exception e) {
              throw new RuntimeException(e);
          } finally {
@@ -36,10 +36,11 @@ public class NormalCustomer extends Account{
      @Override
      public void deposit(double money) {
          try {
-             wallet += money;
-             double interest = wallet * INTERSET / 100.0;
-             String line = "Deposited $"+interest+" on "+ new Date();
-             transactions.add(line);
+             double intlo= getBalance();
+              intlo+= money;
+             double interest = intlo * INTERSET / 100.0;
+             String line = "Deposited $"+(interest+intlo)+" on "+ new Date();
+             transactionsType.add(line);
          } catch (Exception e) {
              throw new RuntimeException(e);
          } finally {

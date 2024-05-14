@@ -5,4 +5,5 @@ module com.example.onlinebankingsystem {
 
     opens com.example.onlinebankingsystem to javafx.fxml;
     exports Controls;
+    exports Resources;
 }

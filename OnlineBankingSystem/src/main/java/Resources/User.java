@@ -1,47 +1,42 @@
 package Resources;
-import java.util.*;
+import java.util.Scanner;
+
 public class User {
-    String Username;
-    String password;
+    private String username;
+    private String password;
 
-    User() {
-
+    public User() {
+        this.username = "";
+        this.password = "";
     }
 
     public User(String username, String password) {
-        Username = username;
-        this.password = password;
+        setUsername(username);
     }
 
     public String getUsername() {
-        return Username;
+        return username;
     }
 
-    public void setUsername(String Username) throws IllegalArgumentException {
-        try {
-            this.Username = Username;
-        } catch (Exception e) {
-            throw new RuntimeException(e);
-        }
-        if (!validateUsername(Username)) {
+    public void setUsername(String username) throws IllegalArgumentException {
+        if (!validateUsername(username)) {
             throw new IllegalArgumentException("Username can only contain letters.");
         }
+        this.username = username;
     }
+
     public boolean validateUsername(String username) {
         return username.matches("[a-zA-Z]+");
     }
+
     public String getPassword() {
         return password;
     }
 
-    public void setPassword(String password) {
-        try {
-            if(password.length() == 8){
-                this.password = password;
-            }
-        } catch (Exception e) {
-            System.out.println("More than the length of password that its equal 8");
-            throw new RuntimeException(e);
+    public void setPassword(String password) throws IllegalArgumentException {
+        if (password.length() != 8) {
+            throw new IllegalArgumentException("Password must be 8 characters long.");
         }
+        this.password = password;
     }
 }
