@@ -24,7 +24,11 @@ public class Personalnformation  {
         return name;
     }
     public void setName(String name) {
-        this.name = name;
+        try {
+            this.name = name;
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
     }
     public int getPhonenum() {
         return phonenum;
@@ -40,7 +44,11 @@ public class Personalnformation  {
         return address;
     }
     public void setAddress(String address) {
-        this.address = address;
+        try {
+            this.address = address;
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
     }
     public int getId() {
         return id;
@@ -57,7 +65,11 @@ public class Personalnformation  {
     }
 
     public void setUser(User user) {
-        this.user = user;
+        try {
+            this.user = user;
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
     }
 
 }
