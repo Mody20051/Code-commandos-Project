@@ -1,30 +1,66 @@
 package Resources;
 import java.util.Scanner;
 public class OnlineBankingSystem {
+    Scanner scanner = new Scanner(System.in);
    public static void main (String [] args){
-       Scanner scanner = new Scanner(System.in);
+       OnlineBankingSystem onlineBankingSystem=new OnlineBankingSystem();
+       onlineBankingSystem.start();
+   }
+    public void start() {
+        int choice;
+        do {
+            System.out.println("\nWelcome!");
+            System.out.println("1. Register");
+            System.out.println("2. Login");
+            System.out.println("3. Exit");
+            System.out.print("Enter your choice: ");
 
-       System.out.print("Enter username: ");
-       String usernameInput = scanner.nextLine();
+            try {
+                choice = Integer.parseInt(scanner.nextLine());
+            } catch (NumberFormatException e) {
+                System.out.println("Invalid input. Please enter a number (1-3).");
+                choice = 0;
+            }
 
-       System.out.print("Enter password: ");
-       String passwordInput = scanner.nextLine();
+            switch (choice) {
+                case 1:
+                    registerUser();
+                    break;
+                case 2:
+                    loginUser();
+                    break;
+                case 3:
+                    System.out.println("Exiting...");
+                    break;
+                default:
+                    System.out.println("Invalid choice.");
+            }
+        } while (choice != 3);
+    }
 
+    public void registerUser() {
+        System.out.print("Enter username: ");
+        String username = scanner.nextLine();
 
+        System.out.print("Enter password: ");
+        String password = scanner.nextLine();
 
-       // Create User object with input validation
-       try {
-           // Registration
-           User user = new User(usernameInput, passwordInput);
-           System.out.println("User created successfully!");
+        System.out.print("Enter name (optional): ");
 
-       } catch (IllegalArgumentException e) {
-           System.out.println("Error: " + e.getMessage());
-       }
-       if (usernameInput.equals("username") && passwordInput.equals("password")) {
-           System.out.println("Login successful!");
-       } else {
-           System.out.println("Login failed: Incorrect username or password.");
-        }
+        String name = scanner.nextLine();
+
+        System.out.println("Registration successful!");
+    }
+
+    public void loginUser() {
+        System.out.print("Enter username: ");
+        String username = scanner.nextLine();
+
+        System.out.print("Enter password: ");
+        String password = scanner.nextLine();
+//        if ()
+//        System.out.println("Login successful!");
+//    } else {
+//        System.out.println("Login failed. Please check username and password.");
       }
     }

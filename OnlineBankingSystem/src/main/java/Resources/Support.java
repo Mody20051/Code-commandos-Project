@@ -28,11 +28,8 @@ public class Support extends  Personalnformation {
         emailBody.append(senderName).append("\n");
         return emailBody.toString();
     }
-
-    // Method to send email (implementation would depend on chosen library or service)
     public void sendEmail() {
-        // Logic to send email using a Java email library (e.g., JavaMail) or external service API
-        System.out.println("Email sent to " + recipient + " with subject: " + subject); // Placeholder for actual sending
+        System.out.println("Email sent to " + recipient + " with subject: " + subject);
     }
 
     public String getRecipient() {

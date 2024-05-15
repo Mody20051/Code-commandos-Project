@@ -1,9 +1,11 @@
 package Resources;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class User {
     private String username;
     private String password;
+     ArrayList<User> users = new ArrayList<>();
     Personalnformation personalnformation;
     public User() {
         this.username = "";
@@ -13,6 +15,12 @@ public class User {
     public User(String username, String password) {
        this.username=username;
        this.password=password;
+    }
+
+    public User(String username, String password, Personalnformation personalnformation) {
+        this.username = username;
+        this.password = password;
+        this.personalnformation = personalnformation;
     }
 
     public String getUsername() {
@@ -40,14 +48,21 @@ public class User {
         }
         this.password = password;
     }
-  public boolean login(String Username,String password){
-        if(Username.equals(this.username)&&password.equals(this.password)){
-            return true;
+    public boolean login(String username, String password) {
+        for (User user : users) {
+            if (user.getUsername().equals(username) && user.getPassword().equals(password)) {
+                System.out.println("The user is Successfully registered");
+                return true;
+            }
         }
-        return false;
-  }
-//    public boolean register(String username, String password,Personalnformation personalnformation) throws IllegalArgumentException {
-//
-//    }
-
+    }
+        public boolean register(String username, String password){
+            for (User user : users) {
+                if (user.getUsername().equals(username)) {
+                    System.out.println("The user is already used");
+                    return true;
+                }
+            }
+            return false;
+        }
 }
