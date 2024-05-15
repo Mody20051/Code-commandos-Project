@@ -6,14 +6,8 @@ public class Employee extends Personalnformation{
     private int salary;
     private int hours;
 
-    public Employee(String EID, int salary, int hours) {
-        this.EID = EID;
-        this.salary = salary;
-        this.hours = hours;
-    }
-
-    public Employee(String name, int phonenum, String address, Gender gender, int id, User user, String EID, int salary, int hours) {
-        super(name, phonenum, address, gender, id, user);
+    public Employee(String name, int phonenum, String address, Gender gender, int id, String EID, int salary, int hours) {
+        super(name, phonenum, address, gender, id);
         this.EID = EID;
         this.salary = salary;
         this.hours = hours;
@@ -24,7 +18,11 @@ public class Employee extends Personalnformation{
     }
 
     public void setSalary(int salary) {
-        this.salary = salary;
+        try {
+            this.salary = salary;
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
     }
 
     public int getHours() {
@@ -32,7 +30,11 @@ public class Employee extends Personalnformation{
     }
 
     public void setHours(int hours) {
-        this.hours = hours;
+        try {
+            this.hours = hours;
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
     }
 
     @Override

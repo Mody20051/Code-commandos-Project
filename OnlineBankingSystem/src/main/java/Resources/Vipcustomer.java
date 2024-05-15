@@ -4,8 +4,8 @@ import java.util.Date;
 
 public class Vipcustomer extends Account {
 
-    public Vipcustomer(String name, int phonenum, String address, Gender gender, int id, User user, double balance, String account) {
-        super(name, phonenum, address, gender, id, user, balance, account);
+    public Vipcustomer(String name, int phonenum, String address, Gender gender, int id, double balance, String account) {
+        super(name,phonenum,address,gender,id, balance, account);
     }
 
     final static int INTERSET=18;

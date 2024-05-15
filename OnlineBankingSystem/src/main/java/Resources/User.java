@@ -4,14 +4,15 @@ import java.util.Scanner;
 public class User {
     private String username;
     private String password;
-
+    Personalnformation personalnformation;
     public User() {
         this.username = "";
         this.password = "";
     }
 
     public User(String username, String password) {
-        setUsername(username);
+       this.username=username;
+       this.password=password;
     }
 
     public String getUsername() {
@@ -39,5 +40,14 @@ public class User {
         }
         this.password = password;
     }
+  public boolean login(String Username,String password){
+        if(Username.equals(this.username)&&password.equals(this.password)){
+            return true;
+        }
+        return false;
+  }
+//    public boolean register(String username, String password,Personalnformation personalnformation) throws IllegalArgumentException {
+//
+//    }
 
 }

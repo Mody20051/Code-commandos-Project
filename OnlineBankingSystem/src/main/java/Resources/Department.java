@@ -1,20 +1,19 @@
 
 package Resources;
 import java .util.Date;
-public class Department {
+public class Department extends Manger{
 
     private String DENAME;
     private int DENUMBER;
     private  Date  MGSTATDATE;
+    Manger manger;
 
-
-    public Department() {
-    }
-
-    public Department(String DENAME, int DENUMBER, Date MGSTATDATE) {
+    public Department(String name, int phonenum, String address, Gender gender, int id,Manger manger, String EID, int salary, int hours, String DENAME, int DENUMBER, Date MGSTATDATE) {
+        super(name,phonenum,address,gender,id, EID, salary, hours);
         this.DENAME = DENAME;
         this.DENUMBER = DENUMBER;
         this.MGSTATDATE = MGSTATDATE;
+        this.manger=manger;
     }
 
     public String getDENAME() {
@@ -22,7 +21,11 @@ public class Department {
     }
 
     public void setDENAME(String DENAME) {
-        this.DENAME = DENAME;
+        try {
+            this.DENAME = DENAME;
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
     }
 
     public int getDENUMBER() {
@@ -41,6 +44,10 @@ public class Department {
     }
 
     public void setMGSTATDATE(Date MGSTATDATE) {
-        this.MGSTATDATE = MGSTATDATE;
+        try {
+            this.MGSTATDATE = MGSTATDATE;
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
     }
 }

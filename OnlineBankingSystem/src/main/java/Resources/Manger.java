@@ -8,8 +8,8 @@ public class Manger extends Employee  {
 
 
 
-    public Manger(String name, int phonenum, String address, Gender gender, int id, User user, String EID, int salary, int hours) {
-        super(name, phonenum, address, gender, id, user, EID, salary, hours);
+    public Manger(String name, int phonenum, String address, Gender gender, int id, String EID, int salary, int hours) {
+        super(name,phonenum,address,gender,id, EID, salary, hours);
     }
 
     public String getBranchID() {

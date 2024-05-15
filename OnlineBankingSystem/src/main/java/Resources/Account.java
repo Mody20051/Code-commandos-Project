@@ -8,8 +8,8 @@ public abstract class Account extends Personalnformation {
      protected ArrayList<String> transactionsType =new ArrayList<>();
 
 
-    public Account(String name, int phonenum, String address, Gender gender, int id, User user, double balance, String account) {
-        super(name, phonenum, address, gender, id, user);
+    public Account(String name, int phonenum, String address, Gender gender, int id, double balance, String account) {
+        super(name, phonenum, address, gender, id);
         this.balance = balance;
         this.account = account;
     }
