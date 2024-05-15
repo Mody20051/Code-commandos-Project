@@ -48,7 +48,6 @@ public class OnlineBankingSystem {
 
         if (loggedIn) {
             System.out.println("Login Successfully");
-            // Show the next menu after successful login
             showUserTypeMenu();
         } else {
             System.out.println("Invalid Username or Password");
