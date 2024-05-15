@@ -26,6 +26,16 @@ public class Manger extends Employee  {
     }
 
     @Override
+    public int getSalary() {
+        return super.getSalary()*(getHours()*2);
+    }
+
+    @Override
+    public int getHours() {
+        return super.getHours();
+    }
+
+    @Override
     public String toString() {
         return "Manger{" +
                 "branchID='" + branchID + '\'' +

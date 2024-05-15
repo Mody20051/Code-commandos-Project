@@ -14,7 +14,7 @@ public class Employee extends Personalnformation{
     }
 
     public int getSalary() {
-        return salary;
+        return salary*hours;
     }
 
     public void setSalary(int salary) {
