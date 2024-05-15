@@ -7,8 +7,8 @@ public class Support extends  Personalnformation {
     private String subject;
     private String message;
 
-    public Support(String name, int phonenum, String address, Gender gender, int id,String recipient, String senderName, String subject, String message) {
-        super(name,phonenum,address,gender,id);
+    public Support(String name, String password, String email, int phonenum, String address, Gender gender, int id,String recipient, String senderName, String subject, String message) {
+        super(name,password,email,phonenum,address,gender,id);
         this.recipient = recipient;
         this.senderName = senderName;
         this.subject = subject;

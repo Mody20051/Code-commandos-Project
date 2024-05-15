@@ -58,9 +58,9 @@ public class OnlineBankingSystem {
 
         System.out.print("Enter password: ");
         String password = scanner.nextLine();
-//        if ()
-//        System.out.println("Login successful!");
-//    } else {
-//        System.out.println("Login failed. Please check username and password.");
+        if (user != null && user.getPassword().equals(password))
+        System.out.println("Login successful!");
+    } else {
+        System.out.println("Login failed. Please check username and password.");
+        }
       }
-    }
