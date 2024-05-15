@@ -1,15 +1,13 @@
 
 package Resources;
 import java .util.Date;
-public class Department extends Manger{
-
+public class Department{
     private String DENAME;
     private int DENUMBER;
     private  Date  MGSTATDATE;
     Manger manger;
 
-    public Department(String name,String password,String email,int phonenum, String address, Gender gender, int id,Manger manger, String EID, int salary, int hours, String DENAME, int DENUMBER, Date MGSTATDATE) {
-        super(name,password,email,phonenum,address,gender,id, EID, salary, hours);
+    public Department(Manger manger,String DENAME, int DENUMBER, Date MGSTATDATE) {
         this.DENAME = DENAME;
         this.DENUMBER = DENUMBER;
         this.MGSTATDATE = MGSTATDATE;
@@ -49,5 +47,15 @@ public class Department extends Manger{
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
+    }
+
+    @Override
+    public String toString() {
+        return "Department{" +
+                "DENAME='" + DENAME + '\'' +
+                ", DENUMBER=" + DENUMBER +
+                ", MGSTATDATE=" + MGSTATDATE +
+                ", manger=" + manger +
+                '}';
     }
 }

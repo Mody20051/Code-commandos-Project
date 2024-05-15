@@ -2,14 +2,14 @@ package Resources;
 
 import java.util.ArrayList;
 
-public abstract class Account extends Personalnformation {
+public abstract class Account extends PersonalInformation {
      private double balance;
      private String account;
-      ArrayList<String> transactionsType =new ArrayList<>();
+      ArrayList<Transactions> TransactionsType =new ArrayList<>();
 
 
-    public Account(String name,String password,String email,int phonenum, String address, Gender gender, int id, double balance, String account) {
-        super(name,password,email,phonenum, address, gender, id);
+    public Account(String name,String email,int phonenum, String address, Gender gender, int id, double balance, String account) {
+        super(name,email,phonenum, address, gender, id);
         this.balance = balance;
         this.account = account;
     }
@@ -21,18 +21,13 @@ public abstract class Account extends Personalnformation {
         balance = balance;
     }
 
-    abstract public void applyInterest();
-    public String getTransactions(){
-         if(transactionsType.size() >= 1){
-             String trans="";
-         for (int i = 0; i < transactionsType.size(); i++) {
-             trans += transactionsType.get(i) + "\n" + " ";
-         }
-         return trans;
-     }
-        return "No transactions";
+    public void addTransaction(Transactions transaction) {
+        TransactionsType.add(transaction);
     }
+    abstract public void applyInterest();
     public abstract void withdraw(double money);
      public abstract void deposit(double money);
+
+    public abstract void transfer(double money, Account targetAccount);
 }
 

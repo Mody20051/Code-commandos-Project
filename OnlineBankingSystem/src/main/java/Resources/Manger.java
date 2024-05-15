@@ -5,8 +5,10 @@ public class Manger extends Employee  {
     private String email;
 
 
-    public Manger(String name,String password,String email,int phonenum, String address, Gender gender, int id, String EID, int salary, int hours) {
-        super(name,password,email,phonenum,address,gender,id, EID, salary, hours);
+    public Manger(String name, String email, int phoneNum, String address, Gender gender, int id, String EID, int salary, int hours, String branchID, String email1) {
+        super(name, email, phoneNum, address, gender, id, EID, salary, hours);
+        this.branchID = branchID;
+        this.email = email1;
     }
 
     public String getBranchID() {

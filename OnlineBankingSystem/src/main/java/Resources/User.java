@@ -1,25 +1,29 @@
 package Resources;
+
 import java.util.ArrayList;
 
 public class User {
     private String username;
     private String password;
-     ArrayList<User> users = new ArrayList<>();
-    Personalnformation personalnformation;
-    public User(String username, String password, String name) {
+    private PersonalInformation personalInformation;
+    private static ArrayList<User> users = new ArrayList<>();
+
+    public User() {
         this.username = "";
         this.password = "";
+        this.personalInformation = null;
     }
 
     public User(String username, String password) {
-       this.username=username;
-       this.password=password;
-    }
-
-    public User(String username, String password, Personalnformation personalnformation) {
         this.username = username;
         this.password = password;
-        this.personalnformation = personalnformation;
+        this.personalInformation = null;
+    }
+
+    public User(String username, String password, PersonalInformation personalInformation) {
+        this.username = username;
+        this.password = password;
+        this.personalInformation = personalInformation;
     }
 
     public String getUsername() {
@@ -47,22 +51,39 @@ public class User {
         }
         this.password = password;
     }
+
+    public PersonalInformation getPersonalInformation() {
+        return personalInformation;
+    }
+
+    public void setPersonalInformation(PersonalInformation personalInformation) {
+        this.personalInformation = personalInformation;
+    }
+
     public boolean login(String username, String password) {
         for (User user : users) {
             if (user.getUsername().equals(username) && user.getPassword().equals(password)) {
-                System.out.println("The user is Successfully registered");
+                System.out.println("The user is successfully logged in.");
                 return true;
+            }
+            else{
+                System.out.println("error");
             }
         }
         return false;
     }
-        public boolean register(String username, String password){
-            for (User user : users) {
-                if (user.getUsername().equals(username)) {
-                    System.out.println("The user is already used");
-                    return true;
-                }
+
+    public  boolean register(String username, String password, PersonalInformation personalInformation) {
+        for (User user : users) {
+            if (user.getUsername().equals(username)) {
+                System.out.println("The username is already used.");
+                return false;
             }
-            return false;
         }
+        User newUser = new User(username, password, personalInformation);
+        users.add(newUser);
+        System.out.println("User successfully registered.");
+        return true;
+    }
+
 }

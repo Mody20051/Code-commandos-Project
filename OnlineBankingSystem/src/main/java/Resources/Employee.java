@@ -1,13 +1,13 @@
 package Resources;
 
-public class Employee extends Personalnformation{
+public class Employee extends PersonalInformation{
 
     private String  EID;
     private int salary;
     private int hours;
 
-    public Employee(String name,String password,String email,int phonenum, String address, Gender gender, int id, String EID, int salary, int hours) {
-        super(name,password,email,phonenum,address, gender, id);
+    public Employee(String name, String email, int phoneNum, String address, Gender gender, int id, String EID, int salary, int hours) {
+        super(name, email, phoneNum, address, gender, id);
         this.EID = EID;
         this.salary = salary;
         this.hours = hours;

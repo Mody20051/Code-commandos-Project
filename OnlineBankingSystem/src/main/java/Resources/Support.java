@@ -1,74 +1,93 @@
 package Resources;
+import java.util.Date;
 
-public class Support extends  Personalnformation {
-    private String recipient;
-    private String senderName;
-    private String senderEmail;
-    private String subject;
-    private String message;
+public class Support extends Employee {
+    private int supportID;
+    private String supportType;
+    private String description;
+    private String status;
+    private Date timestamp;
+    private String priority;
+    private Employee assignedTo;
 
-    public Support(String name, String password, String email, int phonenum, String address, Gender gender, int id,String recipient, String senderName, String subject, String message) {
-        super(name,password,email,phonenum,address,gender,id);
-        this.recipient = recipient;
-        this.senderName = senderName;
-        this.subject = subject;
-        this.message = message;
-    }
-    public String buildEmailBody() {
-        StringBuilder emailBody = new StringBuilder();
-        emailBody.append("Dear [Bank Name] Support Team,\n\n");
-        emailBody.append("My name is ").append(senderName).append(".\n");
-        if (!senderEmail.isEmpty()) {
-            emailBody.append("My email address is ").append(senderEmail).append(".\n");
-        }
-        emailBody.append("I am writing to request support regarding ").append(subject).append(".\n\n");
-        emailBody.append(message).append("\n\n");
-        emailBody.append("Thank you for your time and assistance. I look forward to your response as soon as possible.\n\n");
-        emailBody.append("Sincerely,\n");
-        emailBody.append(senderName).append("\n");
-        return emailBody.toString();
-    }
-    public void sendEmail() {
-        System.out.println("Email sent to " + recipient + " with subject: " + subject);
+    public Support(String name, String email, int phoneNum, String address, Gender gender, int id, String EID, int salary, int hours, int supportID, String supportType, String description, String status, Date timestamp, String priority, Employee assignedTo) {
+        super(name, email, phoneNum, address, gender, id, EID, salary, hours);
+        this.supportID = supportID;
+        this.supportType = supportType;
+        this.description = description;
+        this.status = status;
+        this.timestamp = timestamp;
+        this.priority = priority;
+        this.assignedTo = assignedTo;
     }
 
-    public String getRecipient() {
-        return recipient;
+    // Getters and Setters
+    public int getSupportID() {
+        return supportID;
     }
 
-    public void setRecipient(String recipient) {
-        this.recipient = recipient;
+    public void setSupportID(int supportID) {
+        this.supportID = supportID;
     }
 
-    public String getSenderName() {
-        return senderName;
+    public String getSupportType() {
+        return supportType;
     }
 
-    public void setSenderName(String senderName) {
-        this.senderName = senderName;
+    public void setSupportType(String supportType) {
+        this.supportType = supportType;
     }
 
-    public String getSenderEmail() {
-        return senderEmail;
+    public String getDescription() {
+        return description;
     }
 
-    public void setSenderEmail(String senderEmail) {
-        this.senderEmail = senderEmail;
+    public void setDescription(String description) {
+        this.description = description;
     }
 
-    public String getSubject() {
-        return subject;
+    public String getStatus() {
+        return status;
     }
 
-    public void setSubject(String subject) {
-        this.subject = subject;
+    public void setStatus(String status) {
+        this.status = status;
     }
 
-    public String getMessage() {
-        return message;
+    public Date getTimestamp() {
+        return timestamp;
     }
 
-    public void setMessage(String message) {
-        this.message = message;
+    public void setTimestamp(Date timestamp) {
+        this.timestamp = timestamp;
+    }
+
+    public String getPriority() {
+        return priority;
+    }
+
+    public void setPriority(String priority) {
+        this.priority = priority;
+    }
+
+    public Employee getAssignedTo() {
+        return assignedTo;
+    }
+
+    public void setAssignedTo(Employee assignedTo) {
+        this.assignedTo = assignedTo;
+    }
+
+    @Override
+    public String toString() {
+        return "Support{" +
+                "supportID=" + supportID +
+                ", supportType='" + supportType + '\'' +
+                ", description='" + description + '\'' +
+                ", status='" + status + '\'' +
+                ", timestamp=" + timestamp +
+                ", priority='" + priority + '\'' +
+                ", assignedTo=" + assignedTo +
+                "} " + super.toString();
     }
 }

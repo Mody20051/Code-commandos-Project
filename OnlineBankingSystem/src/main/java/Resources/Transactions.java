@@ -1,17 +1,20 @@
 package Resources;
 import java.util.Date;
+
 public class Transactions {
     Type type;
+
+    double UpdateBalance;
     Status status;
     Date date;
 
     Transactions() {
-
     }
-    Transactions(Type type, Status status, Date date) {
+    Transactions(Type type, Status status,double UpdateBalance, Date date) {
         this.type = type;
         this.status = status;
         this.date = new Date(date.getTime());
+        this.UpdateBalance=UpdateBalance;
         }
 
     public Type getType() {
@@ -37,6 +40,16 @@ public class Transactions {
     public void setDate(Date date) {
         this.date = date;
     }
+
+    public double getUpdateBalance() {
+        return UpdateBalance;
+    }
+
+    public void setUpdateBalance(double updateBalance) {
+        UpdateBalance = updateBalance;
+    }
+
 }
+
 
 
