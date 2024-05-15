@@ -55,6 +55,7 @@ public class User {
                 return true;
             }
         }
+        return false;
     }
         public boolean register(String username, String password){
             for (User user : users) {
