@@ -4,63 +4,25 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class OnlineBankingSystem {
-    private ArrayList<User> users = new ArrayList<>();
     private Scanner scanner = new Scanner(System.in);
+    private ArrayList<Account> customers = new ArrayList<>();
+    private ArrayList<Employee> employees = new ArrayList<>();
 
-    public OnlineBankingSystem() {
-        // Initialize with some hardcoded users
-        users.add(new User("user1", "password1"));
-        users.add(new User("user2", "password2"));
+    private static int customerIdCounter = 1;
+    private static int employeeIdCounter = 1001;
+
+    public static void main(String[] args) {
+        OnlineBankingSystem onlineBankingSystem = new OnlineBankingSystem();
+        onlineBankingSystem.start();
     }
 
-    public void registerUser() {
-        System.out.print("Enter new username: ");
-        String username = scanner.nextLine();
-        System.out.print("Enter new password: ");
-        String password = scanner.nextLine();
-
-        // Check if the username already exists
-        boolean userExists = false;
-        for (User user : users) {
-            if (user.getUsername().equals(username)) {
-                userExists = true;
-                break;
-            }
-        }
-
-        if (userExists) {
-            System.out.println("Username already exists. Please try a different username.");
-        } else {
-            users.add(new User(username, password));
-            System.out.println("Registration successful. You can now log in.");
-        }
-    }
-
-    public void loginUser(String username, String password) {
-        // Check credentials against the user list
-        boolean loggedIn = false;
-        for (User user : users) {
-            if (user.getUsername().equals(username) && user.getPassword().equals(password)) {
-                loggedIn = true;
-                break;
-            }
-        }
-
-        if (loggedIn) {
-            System.out.println("Login Successfully");
-            showUserTypeMenu();
-        } else {
-            System.out.println("Invalid Username or Password");
-        }
-    }
-
-    public void showUserTypeMenu() {
+    public void start() {
         int choice;
         do {
-            System.out.println("\nChoose your account type:");
-            System.out.println("1. Customer");
-            System.out.println("2. Employee");
-            System.out.println("3. Logout");
+            System.out.println("\nWelcome to Online Banking System!");
+            System.out.println("1. Register");
+            System.out.println("2. Login");
+            System.out.println("3. Exit");
             System.out.print("Enter your choice: ");
             try {
                 choice = Integer.parseInt(scanner.nextLine());
@@ -70,13 +32,13 @@ public class OnlineBankingSystem {
             }
             switch (choice) {
                 case 1:
-                    handleCustomerOperations();
+                    registerUser();
                     break;
                 case 2:
-                    handleEmployeeOperations();
+                    loginUser();
                     break;
                 case 3:
-                    System.out.println("Logging out...");
+                    System.out.println("Exiting...");
                     break;
                 default:
                     System.out.println("Invalid choice.");
@@ -84,7 +46,78 @@ public class OnlineBankingSystem {
         } while (choice != 3);
     }
 
-    public void handleCustomerOperations() {
+    public void registerUser() {
+        System.out.println("Registering a new user...");
+        System.out.print("Enter username: ");
+        String username = scanner.nextLine();
+        System.out.print("Enter password: ");
+        String password = scanner.nextLine();
+        System.out.print("Enter name: ");
+        String name = scanner.nextLine();
+        System.out.print("Are you a customer or an employee? (Enter 'customer' or 'employee'): ");
+        String userType = scanner.nextLine().toLowerCase();
+        if (userType.equals("customer")) {
+            int id = customerIdCounter++;
+            customers.add(new Account(id, username, password, name) {
+                @Override
+                public void applyInterest() {
+
+                }
+
+                @Override
+                public void withdraw(double money) {
+
+                }
+
+                @Override
+                public void deposit(double money) {
+
+                }
+
+                @Override
+                public void transfer(double money, Account targetAccount) {
+
+                }
+            });
+            System.out.println("Customer registration successful! Your ID is: " + id);
+        } else if (userType.equals("employee")) {
+            int id = employeeIdCounter++;
+            employees.add(new Employee(id, username, password, name));
+            System.out.println("Employee registration successful! Your ID is: " + id);
+        } else {
+            System.out.println("Invalid user type.");
+        }
+    }
+
+    public void loginUser() {
+        System.out.println("Logging in...");
+        System.out.print("Enter username: ");
+        String username = scanner.nextLine();
+        System.out.print("Enter password: ");
+        String password = scanner.nextLine();
+
+        // Check customers
+        for (Account customer : customers) {
+            if (customer.getUsername() != null && customer.getUsername().equals(username) && customer.getPassword() != null && customer.getPassword().equals(password)) {
+                System.out.println("Login successful! Welcome, Customer " + customer.getName() + ". Your ID is: " + customer.getId());
+                showCustomerMenu();
+                return;
+            }
+        }
+
+        // Check employees
+        for (Employee employee : employees) {
+            if (employee.getUsername() != null && employee.getUsername().equals(username) && employee.getPassword() != null && employee.getPassword().equals(password)) {
+                System.out.println("Login successful! Welcome, Employee " + employee.getName() + ". Your ID is: " + employee.getId());
+                showEmployeeMenu();
+                return;
+            }
+        }
+
+        System.out.println("Invalid username or password.");
+    }
+
+    public void showCustomerMenu() {
         int choice;
         do {
             System.out.println("\nCustomer Operations:");
@@ -102,7 +135,7 @@ public class OnlineBankingSystem {
             switch (choice) {
                 case 1:
                     System.out.println("Transfer operation selected.");
-
+                    // Add transfer operation code here
                     break;
                 case 2:
                     System.out.println("Deposit operation selected.");
@@ -121,7 +154,7 @@ public class OnlineBankingSystem {
         } while (choice != 4);
     }
 
-    public void handleEmployeeOperations() {
+    public void showEmployeeMenu() {
         int choice;
         do {
             System.out.println("\nEmployee Operations:");
@@ -151,41 +184,5 @@ public class OnlineBankingSystem {
                     System.out.println("Invalid choice.");
             }
         } while (choice != 3);
-    }
-
-    public static void main(String[] args) {
-        OnlineBankingSystem onlineBankingSystem = new OnlineBankingSystem();
-        // Main menu
-        int mainChoice;
-        do {
-            System.out.println("\nWelcome to the Online Banking System");
-            System.out.println("1. Login");
-            System.out.println("2. Register");
-            System.out.println("3. Exit");
-            System.out.print("Enter your choice: ");
-            try {
-                mainChoice = Integer.parseInt(onlineBankingSystem.scanner.nextLine());
-            } catch (NumberFormatException e) {
-                System.out.println("Invalid input. Please enter a number (1-3).");
-                mainChoice = 0;
-            }
-            switch (mainChoice) {
-                case 1:
-                    System.out.print("Enter username: ");
-                    String username = onlineBankingSystem.scanner.nextLine();
-                    System.out.print("Enter password: ");
-                    String password = onlineBankingSystem.scanner.nextLine();
-                    onlineBankingSystem.loginUser(username, password);
-                    break;
-                case 2:
-                    onlineBankingSystem.registerUser();
-                    break;
-                case 3:
-                    System.out.println("Exiting the system...");
-                    break;
-                default:
-                    System.out.println("Invalid choice.");
-            }
-        } while (mainChoice != 3);
     }
 }

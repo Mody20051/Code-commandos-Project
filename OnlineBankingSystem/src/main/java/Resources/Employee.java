@@ -13,6 +13,11 @@ public class Employee extends PersonalInformation{
         this.hours = hours;
     }
 
+    public Employee(int id, String username, String password, String name) {
+
+        super();
+    }
+
     public int getSalary() {
         return salary*hours;
     }

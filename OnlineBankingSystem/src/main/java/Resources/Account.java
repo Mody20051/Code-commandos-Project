@@ -13,6 +13,10 @@ public abstract class Account extends PersonalInformation {
         this.balance = balance;
         this.account = account;
     }
+
+    public Account(int id, String username, String password, String name) {
+    }
+
     public double getBalance() {
         return balance;
     }

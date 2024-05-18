@@ -25,6 +25,10 @@ public class PersonalInformation {
         this.id = id;
     }
 
+    public PersonalInformation(int id, String username, String password, String name) {
+    }
+
+
     public String getName() {
         return name;
     }
@@ -89,5 +93,13 @@ public class PersonalInformation {
                 ", gender=" + gender +
                 ", id=" + id +
                 '}';
+    }
+
+    public Object getUsername() {
+        return null;
+    }
+
+    public Object getPassword() {
+        return null;
     }
 }
