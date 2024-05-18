@@ -1,13 +1,12 @@
 package Resources;
 import java.util.ArrayList;
-import java.util.Scanner;
 
 public class User {
     private String username;
     private String password;
      ArrayList<User> users = new ArrayList<>();
     Personalnformation personalnformation;
-    public User() {
+    public User(String username, String password, String name) {
         this.username = "";
         this.password = "";
     }
